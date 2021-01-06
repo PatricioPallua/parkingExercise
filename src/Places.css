@@ -1,0 +1,9 @@
+.container{
+	margin: 2px;
+	padding: 10px;
+	font-size: 8px;
+	text-align: left;
+	border: 2px solid black;
+	width: 150px;
+	height: 100px;
+}
