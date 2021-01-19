@@ -2,9 +2,7 @@
   text-align: center;
 }
 
-
 .App-header {
-  background-color: green;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,17 +11,14 @@
 }
 
 .small {
-  background-color: green;
   display: flex;
 }
 
 .medium {
-  background-color: blue;
   display: flex;
 }
 
 .large {
-  background-color: red;
   display: flex;
 }
 
@@ -41,4 +36,37 @@
 
 .vehicleButton {
   display: flex;
+}
+
+.occupied{
+  background-color: red;
+  margin: 2px;
+  padding: 10px;
+  font-size: 8px;
+  text-align: left;
+  border: 2px solid black;
+  width: 120px;
+  height: 75px;
+}
+
+.free{
+  background-color: green;
+  color: green;
+  margin: 2px;
+  padding: 10px;
+  font-size: 8px;
+  text-align: left;
+  border: 2px solid black;
+  width: 120px;
+  height: 75px;
+}
+
+.container{
+  margin: 2px;
+  padding: 10px;
+  font-size: 8px;
+  text-align: left;
+  border: 2px solid black;
+  width: 150px;
+  height: 100px;
 }

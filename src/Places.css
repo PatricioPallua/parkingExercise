@@ -7,3 +7,20 @@
 	width: 150px;
 	height: 100px;
 }
+
+.occupied{
+	background-color: red;
+}
+
+.free{
+	background-color: green;
+}
+
+.title{
+	font-size: 10px;
+	color: black;
+}
+
+.prop{
+	font-size: 8px;
+}
