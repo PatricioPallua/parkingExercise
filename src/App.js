@@ -130,23 +130,27 @@ function App() {
       }
       setLarge(spot)
     }
+
   }
 
   return (
     <div className="App">
       <header className="App-header">
-        <p> PARKING EXERCISE </p>             
-        <form onSubmit={handleSubmit} >
-          <select name="vehicle" onChange={handleChange} value={chosen}>
-            <option value="">Choose one...</option>
-            <option value="Motorcycle">Motorcycle</option>
-            <option value="Sedan">Sedan</option>
-            <option value="Truck">Truck</option>
-          </select>
-          <button>
-            PARK
-          </button>  
-        </form>
+        <img src="https://seeklogo.com/images/T/traffic-signs-logo-7823141A70-seeklogo.com.png" alt="No hay logo" className="logo" />
+        <div>
+          <p> PARKING EXERCISE </p>             
+          <form onSubmit={handleSubmit} >
+            <select name="vehicle" onChange={handleChange} value={chosen}>
+              <option value="">Choose one...</option>
+              <option value="Motorcycle">Motorcycle</option>
+              <option value="Sedan">Sedan</option>
+              <option value="Truck">Truck</option>
+            </select>
+            <button>
+              PARK
+            </button>  
+          </form>
+        </div>
       </header>
       {
         <>
@@ -158,13 +162,12 @@ function App() {
                 {el.situation === "occupied"?
                   <button onClick={() => freeSpace(el.id)}> FREE SPACE </button>
                   :
-                  <div> EMPTY PLACE </div>
+                  <div> EMPTY SMALL PLACE </div>
                 }
               </div>
             ))
           }
         </div>
-
         <div className="medium">
           {
             medium.map(el => (
@@ -173,14 +176,12 @@ function App() {
                 {el.situation === "occupied"?
                   <button onClick={() => freeSpace(el.id)}> FREE SPACE </button>
                   :
-                  <div> EMPTY PLACE </div>
+                  <div> EMPTY MEDIUM PLACE </div>
                 }
               </div>
             ))
           }
         </div>
-
-
         <div className="large">
           {
             large.map(el => (
@@ -189,7 +190,7 @@ function App() {
                 {el.situation === "occupied"?
                   <button onClick={() => freeSpace(el.id)}> FREE SPACE </button>
                   :
-                  <div> EMPTY PLACE </div>
+                  <div> EMPTY LARGE PLACE </div>
                 }
               </div>
             ))

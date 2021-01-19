@@ -4,22 +4,31 @@
 
 .App-header {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: center;
+}
+
+.logo{
+  height: 30px;
+  width: 30px;
 }
 
 .small {
   display: flex;
+  justify-content: center;
+  padding: 5px;
 }
 
 .medium {
   display: flex;
+  justify-content: center;
+  padding: 5px;
 }
 
 .large {
   display: flex;
+  justify-content: center;
+  padding: 5px;
 }
 
 .place {
