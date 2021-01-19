@@ -70,3 +70,9 @@
   width: 150px;
   height: 100px;
 }
+
+.parkSpace{
+  display: flex;
+  flex-direction: column;
+  border: 2px solid black;
+}

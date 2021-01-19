@@ -45,7 +45,7 @@ function App() {
     var smallIndex = check(small);
     if(smallIndex >= 0){
       var newSmall = small;
-      newSmall[smallIndex] = {situation: "occupied", vehicle: vehicle}
+      newSmall[smallIndex] = {situation: "occupied", vehicle: vehicle, id: small[smallIndex].id}
       setSmall(newSmall);
     } else {
       occupyMedium(vehicle, event);
@@ -57,7 +57,7 @@ function App() {
     var mediumIndex = check(medium);
     if(mediumIndex >= 0){
       var newMedium = medium;
-      newMedium[mediumIndex] = {situation: "occupied", vehicle: vehicle, id: newMedium.id}
+      newMedium[mediumIndex] = {situation: "occupied", vehicle: vehicle, id: medium[mediumIndex].id}
       setMedium(newMedium);
     } else {
       occupyLarge(vehicle, event);
@@ -69,14 +69,12 @@ function App() {
     var largeIndex = check(large);
     if(largeIndex >= 0){
       var newLarge = large;
-      newLarge[largeIndex] = {situation: "occupied", vehicle: vehicle}
+      newLarge[largeIndex] = {situation: "occupied", vehicle: vehicle, id: large[largeIndex].id}
       setLarge(newLarge);
     } else {
       alert("NO PLACE FREE!");
-      console.log("LA QUEUE ES: ", queue)
       var newQueue = queue;
       newQueue.push(vehicle)
-      console.log("LA NEWQUEUE ES: ", newQueue);
       setQueue(newQueue);
     }
   }
@@ -104,6 +102,36 @@ function App() {
     setChosen(e.target.value);
   }
 
+  const freeSpace = (i) => {
+    if(i <= 5){
+      let spot = [...small];
+      for(let j=0; j<spot.length; j++){
+        if(spot[j].id === i){
+          spot[j] = {situation: "free", vehicle: null, id: i}
+        }
+      }
+      setSmall(spot)
+    }
+    if(i >5 && i <= 10){
+      let spot = [...medium];
+      for(let j=0; j<spot.length; j++){
+        if(spot[j].id === i){
+          spot[j] = {situation: "free", vehicle: null, id: i}
+        }
+      }
+      setMedium(spot)
+    }
+    if(i >10){
+      let spot = [...large];
+      for(let j=0; j<spot.length; j++){
+        if(spot[j].id === i){
+          spot[j] = {situation: "free", vehicle: null, id: i}
+        }
+      }
+      setLarge(spot)
+    }
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -125,7 +153,14 @@ function App() {
         <div className="small">
           {
             small.map(el => (
-              <Places  key={el.id} vehicle={el.vehicle} situation={el.situation} />
+              <div key={el.id} className="parkSpace"> 
+                <Places  key={el.id} vehicle={el.vehicle} situation={el.situation} />
+                {el.situation === "occupied"?
+                  <button onClick={() => freeSpace(el.id)}> FREE SPACE </button>
+                  :
+                  <div> EMPTY PLACE </div>
+                }
+              </div>
             ))
           }
         </div>
@@ -133,7 +168,14 @@ function App() {
         <div className="medium">
           {
             medium.map(el => (
-              <Places  key={el.id} vehicle={el.vehicle} situation={el.situation} />
+              <div key={el.id} className="parkSpace"> 
+                <Places  key={el.id} vehicle={el.vehicle} situation={el.situation} />
+                {el.situation === "occupied"?
+                  <button onClick={() => freeSpace(el.id)}> FREE SPACE </button>
+                  :
+                  <div> EMPTY PLACE </div>
+                }
+              </div>
             ))
           }
         </div>
@@ -142,7 +184,14 @@ function App() {
         <div className="large">
           {
             large.map(el => (
-              <Places key={el.id} vehicle={el.vehicle} situation={el.situation} />
+              <div key={el.id} className="parkSpace"> 
+                <Places  key={el.id} vehicle={el.vehicle} situation={el.situation} />
+                {el.situation === "occupied"?
+                  <button onClick={() => freeSpace(el.id)}> FREE SPACE </button>
+                  :
+                  <div> EMPTY PLACE </div>
+                }
+              </div>
             ))
           }
         </div>

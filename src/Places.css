@@ -3,24 +3,32 @@
 	padding: 10px;
 	font-size: 8px;
 	text-align: left;
-	border: 2px solid black;
 	width: 150px;
 	height: 100px;
 }
 
 .occupied{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 	background-color: red;
 }
 
 .free{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 	background-color: green;
 }
 
 .title{
-	font-size: 10px;
+	font-size: 11px;
 	color: black;
 }
 
 .prop{
-	font-size: 8px;
+	font-size: 9px;
+	color: black;
 }
